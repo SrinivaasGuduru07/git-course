@@ -4,10 +4,7 @@ const app = express();
 const User = require("./models/user");
 
 app.post("/signup",async (req,res)=>{
-
-
-    //creating a new instance of the User Model.
-    
+//creating a new instance of the User Model.
     const user = new User({
         firstName : "akshay",
         lastname : "saini",
