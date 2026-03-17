@@ -95,8 +95,9 @@ userSchema.methods.getJWT = async function(){
 //comparing the password input from req.body and passwor saved in the DB.
 userSchema.methods.validatePassword = async function(passwordInputByUser){
     const user =  this;
+    //found the email that the user entered so user.password in the DB is hash password.
     const passwordHash = user.password;
-
+//input password means user entered at the request.body:
     const isPasswordValid = await bcrypt.compare(
         passwordInputByUser, 
         passwordHash
