@@ -50,11 +50,13 @@ app.post("/login",async(req,res)=>{
         if(!user){
             throw new Error("Invalid Credentials");
         }
+        //Calling the ValidatePassword
         const isPasswordValid = await user.validatePassword(password);
 
         if(isPasswordValid){
 
             //Creating a JWT token.
+            //Calling the getJWT function
             const token = await user.getJWT();
             //console.log(token);
 
