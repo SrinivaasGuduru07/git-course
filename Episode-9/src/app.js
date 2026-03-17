@@ -49,6 +49,9 @@ app.post("/login",async(req,res)=>{
         if(!user){
             throw new Error("Invalid Credentials");
         }
+        //compare the password from req.body and the user.password stored in the DB.
+        //here the user.pwd means we have found the emailId in the DB
+        //that DB passwor and the password cmg from the req.body.
         const isPasswordValid = await bcrypt.compare(password, user.password);
 
         if(isPasswordValid){
