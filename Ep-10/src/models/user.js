@@ -92,6 +92,7 @@ userSchema.methods.getJWT = async function(){
 
 }
 
+//comparing the password input from req.body and passwor saved in the DB.
 userSchema.methods.validatePassword = async function(passwordInputByUser){
     const user =  this;
     const passwordHash = user.password;
