@@ -1,19 +1,19 @@
-const adminAuth = (req,res,next)=>{
-    console.log("checking the Admin Auth!!!");
+const userAuth = async (req,res,next)=>{
+    const token = req.cookies;
+    
+    const decodedObj = await jwt.verif(token,"dev@tinder");
 
-    const token ="xyz";
-    const isAdminAuth = token ==="xyz";
+    const {_id} = decodedObj;
 
-    if(!isAdminAuth){
-        res.status(401).send("Unauthorized User!!")
-    }
-    else{
-        next();
-    }
+    const user = await UserActivation.findBy(_id);
+
+    req.user = req;
+
+    next();
 }
 
 
 
 module.exports = {
-    adminAuth,
+    userAuth,
 }
