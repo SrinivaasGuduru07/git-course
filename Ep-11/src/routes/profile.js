@@ -9,7 +9,7 @@ const {validateEditProfileData} = require("../utils/validation")
 //import the user Auth middleware.
 const {userAuth} = require("../middlewares/auth");
 
-profileRouter.get("/profile",userAuth, async (req,res)=>{
+profileRouter.get("/profile/view",userAuth, async (req,res)=>{
     try{
     const user = req.user;
     res.send(user)
