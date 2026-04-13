@@ -106,6 +106,7 @@ app.post("/login",async(req,res)=>{
         if(!user){
             throw new Error("Invalid Credentials")
         }
+                                                    (postman pwd, in the DB user hashpwd)
         const isPasswordValid = await bcrypt.compare(password, user.password);
     if(isPasswordValid){
         const token= await jwt.sign({_id:user._id}, "DEV@Tinder$790")
